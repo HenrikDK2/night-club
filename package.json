@@ -5,12 +5,13 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "recoil": "0.0.10",
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start && node api/bin/www",
     "build": "react-scripts build"
   },
   "eslintConfig": {

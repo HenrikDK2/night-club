@@ -5,7 +5,7 @@ import Contact from "./pages/contact";
 import Book from "./pages/book";
 import BlogPost from "./pages/blog-post";
 import BlogArchive from "./pages/blog-archive";
-import HeaderHero from "./components/HeaderHero";
+import Header from "./components/Header";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const NavList = styled.ul``;
@@ -13,10 +13,7 @@ const NavList = styled.ul``;
 function App() {
   return (
     <Router>
-      <header>
-        <Route exact path="/" component={HeaderHero} />
-        <NavList></NavList>
-      </header>
+      <Header />
 
       {/*All Pages*/}
       <Route exact path="/" component={Index} />

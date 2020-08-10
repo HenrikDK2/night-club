@@ -3,7 +3,7 @@ import HeaderHero from "./HeaderHero";
 import Nav from "./Nav";
 import { Route } from "react-router-dom";
 
-const Header = ({}) => {
+const Header = () => {
   return (
     <header>
       <Route exact path="/" component={HeaderHero} />

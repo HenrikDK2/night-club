@@ -18,7 +18,7 @@ const index = ({ src, alt, css }) => {
   `;
   return (
     <Container>
-      <Img alt={alt} src={src} />
+      <Img onDragStart={(e) => e.preventDefault()} alt={alt} src={src} />
     </Container>
   );
 };

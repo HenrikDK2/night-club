@@ -1,0 +1,104 @@
+import React from "react";
+import styled from "styled-components";
+import Image from "../Image";
+import recentSrc from "../../assets/content-img/recent_post1.jpg";
+import recentSrc2 from "../../assets/content-img/recent_post2.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Item = styled.li`
+  display: flex;
+  align-items: start;
+  margin-top: 70px;
+
+  &:first-child {
+    margin-top: 30px;
+  }
+
+  &:last-child {
+    margin-bottom: 30px;
+  }
+  & p {
+    margin: 0;
+  }
+  & figure {
+    width: 100px;
+    height: auto;
+    padding-right: 30px;
+  }
+  & p:last-child {
+    color: var(--red);
+    margin: 1rem 0 0 0;
+  }
+`;
+
+const TwitterIcon = styled(FontAwesomeIcon)`
+  font-size: 1rem;
+  margin: 0 1rem 0 0;
+  color: var(--red);
+`;
+
+const RecentPost = () => {
+  return (
+    <Section>
+      <h3>Recent Posts</h3>
+      <ul>
+        <Item>
+          <aside>
+            <Image src={recentSrc} alt="Recent Post Image" />
+          </aside>
+          <article>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet
+              consectetur
+            </p>
+            <p>April 17, 2018</p>
+          </article>
+        </Item>
+        <Item>
+          <aside>
+            <Image src={recentSrc2} alt="Recent Post Image" />
+          </aside>
+          <article>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet
+              consectetur
+            </p>
+            <p>April 17, 2018</p>
+          </article>
+        </Item>
+      </ul>
+      <h3>Recent Posts</h3>
+      <ul>
+        <ul>
+          <Item>
+            <aside>
+              <TwitterIcon icon={faTwitter} />
+            </aside>
+            <article>
+              <p>It's a long blah... It's a long blah... It's a long blah... It's a long blah...</p>
+              <p>April 17, 2018</p>
+            </article>
+          </Item>
+          <Item>
+            <aside>
+              <TwitterIcon icon={faTwitter} />
+            </aside>
+            <article>
+              <p>It's a long blah... It's a long blah... It's a long blah...</p>
+
+              <p>April 17, 2018</p>
+            </article>
+          </Item>
+        </ul>
+      </ul>
+    </Section>
+  );
+};
+
+export default RecentPost;

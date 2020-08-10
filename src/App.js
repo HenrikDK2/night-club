@@ -1,14 +1,15 @@
 import React from "react";
-import styled from "styled-components";
 import Index from "./pages";
 import Contact from "./pages/contact";
 import Book from "./pages/book";
 import BlogPost from "./pages/blog-post";
 import BlogArchive from "./pages/blog-archive";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
-const NavList = styled.ul``;
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+library.add(faBars, faTimes);
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <Route exact path="/BlogPost" component={BlogPost} />
       <Route exact path="/BlogArchive" component={BlogArchive} />
 
-      <footer></footer>
+      <Footer />
     </Router>
   );
 }

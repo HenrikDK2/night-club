@@ -2,13 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import GlobalStyle from "./GlobalStyle";
+import { RecoilRoot } from "recoil";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <RecoilRoot>
     <GlobalStyle />
     <App />
-  </React.StrictMode>,
+  </RecoilRoot>,
   document.getElementById("root")
 );
 

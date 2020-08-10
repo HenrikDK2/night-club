@@ -3,6 +3,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Api Endpoint
 
 Open [https://night-club-api.herokuapp.com/](https://night-club-api.herokuapp.com/) to view it in the browser.
+API repo [https://github.com/HenrikDK2/NightClubApi](https://github.com/HenrikDK2/NightClubApi) to view it in the browser.
+
+### App Stack
+
+- Styled-components
+- React-router-dom
+- recoil
 
 ### `npm start`
 

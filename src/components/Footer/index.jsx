@@ -18,11 +18,6 @@ const Footer = styled.footer`
     color: var(--red);
     letter-spacing: 0.075em;
   }
-  & ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
 `;
 const LogoSection = styled.section`
   @media (min-width: 750px) {

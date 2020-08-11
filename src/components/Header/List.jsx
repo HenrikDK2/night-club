@@ -4,7 +4,6 @@ import ListItem from "./ListItem";
 
 const List = ({ css }) => {
   const UlList = styled.ul`
-    margin: 0;
     padding: 50px;
     box-sizing: border-box;
     ${css}

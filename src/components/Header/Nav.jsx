@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import List from "./List";
 import Logo from "../Logo";
 import { useRecoilState } from "recoil";
+import border from "../Border";
 import { IsMenuOpenState } from "../../Recoil";
 import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,29 +13,9 @@ const Nav = styled.nav`
   padding: 2rem 1rem;
   box-sizing: border-box;
   user-select: none;
-  border: 1px solid var(--red);
-  position: relative;
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-right: 50px solid transparent;
-    border-left: 50px solid var(--red);
-    border-bottom: 50px solid transparent;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid var(--red);
-    border-top: 50px solid transparent;
-  }
   display: flex;
   align-items: center;
+  ${border}
 `;
 
 const Button = styled(FontAwesomeIcon)`

@@ -54,7 +54,7 @@ const ItemLink = styled(Link)`
 `;
 
 const ListItem = ({ siteName, url }) => {
-  const [_, setIsMenuOpenState] = useRecoilState(IsMenuOpenState);
+  const [isMenuOpen, setIsMenuOpenState] = useRecoilState(IsMenuOpenState);
   return (
     <Item>
       <ItemLink to={url} onClick={() => setIsMenuOpenState(false)}>

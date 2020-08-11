@@ -16,6 +16,11 @@ const GlobalStyle = createGlobalStyle`
     background: var(--bgColor);
   }
 
+  ul{
+    list-style:none;
+    margin:0; padding:0;
+  }
+
   h3, h4, h5, h6{
     line-height: 1.1;font-weight: 500;text-transform: uppercase;
   }

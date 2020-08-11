@@ -2,6 +2,24 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+  @keyframes slideIn{
+    0%{transform:translateY(-300px)}
+    100%{transform:translateY(0)}
+  }
+
+  @keyframes slideOut{
+    0%{transform:translateY(0)}
+    100%{transform:translateY(-300px)}
+  }
+
+  @keyframes InfoIn{
+    0%{transform:translateY(300px)}
+    100%{transform:translateY(0)}
+  }
+  @keyframes InfoOut{
+    0%{transform:translateY(0)}
+    100%{transform:translateY(300px)}
+  }
   :root{
     --bgColor: #030203;
     --red: #ff2a70;

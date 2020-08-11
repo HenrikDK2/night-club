@@ -82,9 +82,9 @@ const WelcomeSection = () => {
       </Heading>
 
       <List>
-        {["", "", ""].map(() => {
+        {["", "", ""].map((_, i) => {
           return (
-            <li>
+            <li key={i}>
               <HoverContent>
                 <section>
                   <Image src={favicon} alt="Nightclub favicon" />

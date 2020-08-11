@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import ImageContainer from "../Image";
 import Underline from "../Underline";
@@ -32,12 +32,14 @@ const images = [headerImg, headerImg2];
 
 const HeaderHero = () => {
   const [index, setIndex] = useState(0);
-  setTimeout(() => {
-    let newIndex = index;
-    newIndex++;
-    if (index > images.length - 2) newIndex = 0;
-    setIndex(newIndex);
-  }, 7000);
+  useEffect(() => {
+    setInterval(() => {
+      let newIndex = index;
+      newIndex++;
+      if (index > images.length - 2) newIndex = 0;
+      setIndex(newIndex);
+    }, 7000);
+  }, []);
 
   return (
     <Article>

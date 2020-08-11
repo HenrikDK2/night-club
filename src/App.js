@@ -1,5 +1,5 @@
 import React from "react";
-import Index from "./pages";
+import Index from "./pages/Index";
 import Contact from "./pages/contact";
 import Book from "./pages/book";
 import BlogPost from "./pages/blog-post";
@@ -9,7 +9,22 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-library.add(faBars, faTimes);
+import {
+  faTwitterSquare,
+  faFacebookSquare,
+  faGooglePlusSquare,
+  faSkype,
+  faBlogger,
+} from "@fortawesome/free-brands-svg-icons";
+library.add(
+  faBars,
+  faTimes,
+  faTwitterSquare,
+  faFacebookSquare,
+  faGooglePlusSquare,
+  faSkype,
+  faBlogger
+);
 
 function App() {
   return (

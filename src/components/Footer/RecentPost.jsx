@@ -8,7 +8,17 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const Section = styled.section`
   display: flex;
+  max-width: 800px;
   flex-direction: column;
+  @media (min-width: 750px) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+    justify-self: Center;
+  }
 `;
 
 const Item = styled.li`
@@ -16,7 +26,7 @@ const Item = styled.li`
   align-items: start;
   margin-top: 70px;
 
-  &:first-child {
+  &:nth-child(2) {
     margin-top: 30px;
   }
 
@@ -46,8 +56,10 @@ const TwitterIcon = styled(FontAwesomeIcon)`
 const RecentPost = () => {
   return (
     <Section>
-      <h3>Recent Posts</h3>
       <ul>
+        <li>
+          <h3>Recent Posts</h3>
+        </li>
         <Item>
           <aside>
             <Image src={recentSrc} alt="Recent Post Image" />
@@ -73,9 +85,12 @@ const RecentPost = () => {
           </article>
         </Item>
       </ul>
-      <h3>Recent Posts</h3>
+
       <ul>
         <ul>
+          <li>
+            <h3>Recent Posts</h3>
+          </li>
           <Item>
             <aside>
               <TwitterIcon icon={faTwitter} />

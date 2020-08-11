@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const InfoSection = styled.section``;
+const InfoSection = styled.section`
+  @media (min-width: 750px) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+`;
 
 const InfoItem = styled.li`
   margin: 2rem 0;

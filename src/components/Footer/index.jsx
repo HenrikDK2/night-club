@@ -7,15 +7,11 @@ import BottomSection from "./BottomSection";
 import RecentPostSection from "./RecentPost";
 
 const Footer = styled.footer`
-  display: grid;
-  min-height: 800px;
+  min-height: 600px;
   background-image: ${`url(${footerBg})`};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 2rem 1rem;
-  grid-template-columns: 1fr;
-  grid-template-rows: 50px 350px;
   & h3 {
     text-transform: uppercase;
     margin: 0;
@@ -28,23 +24,43 @@ const Footer = styled.footer`
     list-style: none;
   }
 `;
-const LogoSection = styled.section``;
+const LogoSection = styled.section`
+  @media (min-width: 750px) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+`;
 
-const List = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style: none;
+const FooterContent = styled.section`
+  max-width: 1400px;
+  display: grid;
+  padding: 2rem 1rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 350px;
+
+  @media (min-width: 750px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70px 350px;
+  }
+
+  @media (min-width: 1000px) {
+    grid-template-columns: 400px 1fr;
+    margin: 0 auto;
+    grid-template-rows: 70px 350px 100px;
+  }
 `;
 
 const FooterComponent = ({}) => {
   return (
     <Footer>
-      <LogoSection>
-        <Logo />
-      </LogoSection>
-      <InfoSection />
-      <RecentPostSection />
-      <BottomSection />
+      <FooterContent>
+        <LogoSection>
+          <Logo />
+        </LogoSection>
+        <InfoSection />
+        <RecentPostSection />
+        <BottomSection />
+      </FooterContent>
     </Footer>
   );
 };

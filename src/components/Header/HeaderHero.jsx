@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import ImageContainer from "../Image";
+import Underline from "../Underline";
 import headerImg from "../../assets/bg/header_bg_2.jpg";
-import logoUnderline from "../../assets/bottom_line.png";
 import Logo from "../Logo";
 import headerImg2 from "../../assets/bg/header_bg_1.jpg";
 
@@ -28,16 +28,9 @@ const LogoContainer = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-const underlineCss = css`
-  width: 100%;
-  & img {
-    object-fit: contain;
-  }
-`;
-
 const images = [headerImg, headerImg2];
 
-const HeaderHero = ({}) => {
+const HeaderHero = () => {
   const [index, setIndex] = useState(0);
   setTimeout(() => {
     let newIndex = index;
@@ -51,7 +44,7 @@ const HeaderHero = ({}) => {
       <ImageContainer css={ImageCss} src={images[index]} alt="Billed" />
       <LogoContainer>
         <Logo alt={true} customCss={logoCss} />
-        <ImageContainer css={underlineCss} src={logoUnderline} alt="Logo underline" />
+        <Underline />
       </LogoContainer>
     </Article>
   );

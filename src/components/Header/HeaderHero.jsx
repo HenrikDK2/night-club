@@ -28,6 +28,19 @@ const LogoContainer = styled.div`
   transform: translate(-50%, -50%);
 `;
 
+const SubHeading = styled.h3`
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 8px;
+  white-space: nowrap;
+`;
+
+const customUnderline = css`
+  margin: -25px 0 0 0;
+`;
+
+const AnimationContainer = styled.div``;
+
 const images = [headerImg, headerImg2];
 
 const HeaderHero = () => {
@@ -46,7 +59,10 @@ const HeaderHero = () => {
       <ImageContainer css={ImageCss} src={images[index]} alt="Billed" />
       <LogoContainer>
         <Logo alt={true} customCss={logoCss} />
-        <Underline />
+        <AnimationContainer>
+          <SubHeading>have a good time</SubHeading>
+          <Underline customCss={customUnderline} />
+        </AnimationContainer>
       </LogoContainer>
     </Article>
   );

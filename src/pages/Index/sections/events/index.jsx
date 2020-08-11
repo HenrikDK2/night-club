@@ -5,7 +5,6 @@ import { Carousel } from "react-responsive-carousel";
 import border from "../../../../components/Border";
 import Heading from "../../../../components/Heading";
 import Image from "../../../../components/Image";
-import imageSrc from "../../../../assets/content-img/event-thumb3.jpg";
 import Fetch from "../../../../FetchFunction";
 import Loader from "../../../../components/Loader";
 
@@ -134,7 +133,13 @@ const Index = ({}) => {
   const [events, setEvents] = useState(null);
   useEffect(() => {
     (async () => {
-      setEvents(await Fetch("events"));
+      let data = await Fetch("events");
+      for (const i in data) {
+        const elm = data[i];
+        const photoData = await Fetch(`assets/${elm.asset}`);
+        data[i] = { ...elm, src: photoData.url };
+      }
+      setEvents(data);
     })();
   }, []);
 
@@ -159,7 +164,7 @@ const Index = ({}) => {
                       <p>{description}</p>
                     </ClubInfo>
                   </InfoContainer>
-                  <Image src={imageSrc} alt="Event billed" />
+                  <Image src={e.src} alt="Event billed" />
                   <TimeContainer>
                     <p>{`${month} ${day}`}</p>
                     <p>22:00 PM</p>

@@ -129,8 +129,13 @@ const InfoContainer = styled.article`
     animation: slideOut 1s;
     box-sizing: content-box;
     padding: 1rem 1.25rem;
-    margin-top: 70px;
+    margin-top: 30px;
     cursor: pointer;
+  }
+  @media (min-width: 500px) {
+    & button {
+      margin-top: 70px;
+    }
   }
 `;
 

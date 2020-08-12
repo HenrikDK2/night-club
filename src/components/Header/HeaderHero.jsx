@@ -44,7 +44,7 @@ const AnimationContainer = styled.div``;
 const images = [headerImg, headerImg2];
 
 const HeaderHero = () => {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(Math.round(Math.random()));
   useEffect(() => {
     setInterval(() => {
       let newIndex = index;

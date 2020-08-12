@@ -55,7 +55,7 @@ const Index = () => {
         const photoData = await Fetch(`assets/${blog.asset}`);
         dataArr = [{ ...blog, src: photoData.url }, ...dataArr];
       }
-      setBlogs(dataArr);
+      setBlogs(await dataArr);
     })();
   }, []);
 

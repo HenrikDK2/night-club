@@ -46,6 +46,10 @@ const GlobalStyle = createGlobalStyle`
   p{
     color: var(--grey);font-size: 15px; line-height: 25px;
   }
+
+   .ReactModal__Overlay {
+    z-index: 122 !important;
+  }
 `;
 
 export default GlobalStyle;

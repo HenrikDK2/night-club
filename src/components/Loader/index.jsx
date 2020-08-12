@@ -33,7 +33,7 @@ const LoaderContainer = styled.div`
   }
 `;
 
-const index = ({}) => {
+const index = () => {
   return (
     <LoaderContainer>
       <span>

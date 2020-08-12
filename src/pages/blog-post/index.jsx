@@ -1,6 +1,6 @@
 import React from "react";
 
-const blogPost = ({}) => {
+const blogPost = () => {
   return <main></main>;
 };
 

@@ -132,7 +132,7 @@ const InfoContainer = styled.article`
   }
 `;
 
-const Index = ({}) => {
+const Index = () => {
   const [events, setEvents] = useState(null);
   useEffect(() => {
     (async () => {

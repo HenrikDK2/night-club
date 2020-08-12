@@ -45,13 +45,15 @@ const images = [headerImg, headerImg2];
 
 const HeaderHero = () => {
   const [index, setIndex] = useState(Math.round(Math.random()));
-  console.log(index);
   useEffect(() => {
-    setTimeout(() => {
+    const changeImage = setTimeout(() => {
       let newIndex = index;
       newIndex++;
       if (index > images.length - 2) newIndex = 0;
       setIndex(newIndex);
+      return () => {
+        clearTimeout(changeImage);
+      };
     }, 7000);
   }, [index]);
 

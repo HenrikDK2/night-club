@@ -5,13 +5,15 @@ import GallerySection from "./sections/gallery";
 import MailSection from "./sections/mail";
 import BlogSection from "./sections/blog";
 import VideoSection from "./sections/video";
+import TestemonialsSection from "./sections/testemonials";
 
-const Index = ({}) => {
+const Index = () => {
   return (
     <main>
       <WelcomeSection />
       <EventsSection />
       <GallerySection />
+      <TestemonialsSection />
       <VideoSection />
       <BlogSection />
       <MailSection />

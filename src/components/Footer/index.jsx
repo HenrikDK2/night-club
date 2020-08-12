@@ -45,7 +45,7 @@ const FooterContent = styled.section`
   }
 `;
 
-const FooterComponent = ({}) => {
+const FooterComponent = () => {
   return (
     <Footer>
       <FooterContent>

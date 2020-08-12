@@ -1,6 +1,6 @@
 import React from "react";
 
-const contact = ({}) => {
+const contact = () => {
   return <main></main>;
 };
 

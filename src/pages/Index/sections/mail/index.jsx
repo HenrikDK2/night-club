@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { useForm } from "react-hook-form";
 
 const Heading = styled.h2`
@@ -88,6 +88,7 @@ const EmailSend = styled.p`
 `;
 const Index = () => {
   const [isEmailSubscribed, setIsEmailSubscribed] = useState(false);
+  // eslint-disable-next-line
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = async (data) => {
     try {

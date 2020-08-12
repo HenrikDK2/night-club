@@ -11,7 +11,7 @@ const GridSection = styled.section`
   display: grid;
 `;
 
-const Index = ({}) => {
+const Index = () => {
   const [galleryPhotos, setGalleryPhotos] = useState(null);
 
   useEffect(() => {

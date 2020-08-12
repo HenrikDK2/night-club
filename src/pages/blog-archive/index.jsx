@@ -1,6 +1,6 @@
 import React from "react";
 
-const blogArchive = ({}) => {
+const blogArchive = () => {
   return <main>tes</main>;
 };
 

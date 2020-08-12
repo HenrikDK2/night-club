@@ -1,6 +1,6 @@
 import React from "react";
 
-const book = ({}) => {
+const book = () => {
   return <main>test2</main>;
 };
 

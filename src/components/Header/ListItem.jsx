@@ -54,6 +54,7 @@ const ItemLink = styled(Link)`
 `;
 
 const ListItem = ({ siteName, url }) => {
+  // eslint-disable-next-line
   const [isMenuOpen, setIsMenuOpenState] = useRecoilState(IsMenuOpenState);
   return (
     <Item>

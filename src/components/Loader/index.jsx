@@ -17,7 +17,7 @@ const LoaderContainer = styled.div`
   border-radius: 50%;
   border: 5px solid transparent;
   border-top: 5px solid var(--red);
-  margin: 20px;
+  margin: 0 auto 20px;
   animation: Loading 2s linear infinite;
   & span {
     position: absolute;

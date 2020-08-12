@@ -1,15 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ### Api Endpoint
 
 Open [https://night-club-api.herokuapp.com/](https://night-club-api.herokuapp.com/) to view it in the browser.
 API repo [https://github.com/HenrikDK2/NightClubApi](https://github.com/HenrikDK2/NightClubApi) to view it in the browser.
 
-### App Stack
+### Tech Stack
 
 - Styled-components
 - React-router-dom
 - recoil
+- React-hook-form
+- Font awesome
 
 ### `npm start`
 

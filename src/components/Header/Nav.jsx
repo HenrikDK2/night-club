@@ -57,7 +57,6 @@ const desktopCss = css`
 
 const Navigation = ({}) => {
   const [isMenuOpen, setIsMenuOpen] = useRecoilState(IsMenuOpenState);
-  console.log(isMenuOpen);
   return (
     <>
       <Nav>

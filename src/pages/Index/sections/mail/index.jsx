@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useForm } from "react-hook-form";
 
 const Heading = styled.h2`
@@ -17,7 +17,9 @@ const Heading = styled.h2`
     }
   }
 `;
-const Section = styled.section``;
+const Section = styled.section`
+  margin-bottom: 100px;
+`;
 const Form = styled.form`
   box-sizing: border-box;
   padding: 0 1rem;
@@ -81,9 +83,9 @@ const ErrMsg = styled.p`
 const EmailSend = styled.p`
   color: #0f0;
   text-align: center;
+  font-weight: Bold;
   text-transform: uppercase;
 `;
-
 const Index = () => {
   const [isEmailSubscribed, setIsEmailSubscribed] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
@@ -102,6 +104,7 @@ const Index = () => {
       console.error(error);
     }
   };
+
   return (
     <Section>
       <Heading>
@@ -114,7 +117,9 @@ const Index = () => {
         <div>
           <label htmlFor="email" aria-label="Email input">
             <input
+              disabled={isEmailSubscribed ? true : false}
               name="email"
+              style={isEmailSubscribed ? { opacity: 0.5, pointerEvents: "none" } : {}}
               type="text"
               placeholder="Enter Your Email"
               ref={register({
@@ -126,7 +131,12 @@ const Index = () => {
               })}
             />
           </label>
-          <Subscribe>Subscribe</Subscribe>
+          <Subscribe
+            style={isEmailSubscribed ? { opacity: 0.5, pointerEvents: "none" } : {}}
+            disabled={isEmailSubscribed ? true : false}
+          >
+            Subscribe
+          </Subscribe>
         </div>
         {errors.email && <ErrMsg>{errors.email.message}</ErrMsg>}
         {isEmailSubscribed && <EmailSend>Email is subscribed</EmailSend>}

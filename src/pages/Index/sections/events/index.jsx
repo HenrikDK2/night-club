@@ -29,6 +29,9 @@ const Section = styled.section`
       opacity: 1;
       width: 20px;
       height: 20px;
+      &:focus {
+        outline: none;
+      }
     }
   }
 `;

@@ -16,13 +16,13 @@ const Index = ({}) => {
 
   useEffect(() => {
     (async () => {
-      let data = await Fetch("gallery-photos");
+      /*       let data = await Fetch("gallery-photos");
 
       for (const elm of data) {
         //const photoData = await Fetch("assets/" + elm.asset);
         console.log(elm);
         //console.log(photoData);
-      }
+      } */
     })();
   }, []);
 

@@ -4,6 +4,8 @@ import Image from "../../../../components/Image";
 import Fetch from "../../../../FetchFunction";
 import Loader from "../../../../components/Loader";
 import Heading from "../../../../components/Heading";
+import { useRecoilState } from "recoil";
+import { BlogsState } from "../../../../Recoil";
 
 const Section = styled.section`
   box-sizing: Border-box;
@@ -46,17 +48,19 @@ const BlogInfo = styled.p`
 `;
 
 const Index = () => {
-  const [blogs, setBlogs] = useState(null);
+  const [blogs, setBlogs] = useRecoilState(BlogsState);
   useEffect(() => {
-    (async () => {
-      let dataArr = [];
-      for (let i = 1; i < 4; i++) {
-        const blog = await Fetch("blog-posts/" + i);
-        const photoData = await Fetch(`assets/${blog.asset}`);
-        dataArr = [{ ...blog, src: photoData.url }, ...dataArr];
-      }
-      setBlogs(await dataArr);
-    })();
+    if (blogs === null) {
+      (async () => {
+        let dataArr = [];
+        for (let i = 1; i < 4; i++) {
+          const blog = await Fetch("blog-posts/" + i);
+          const photoData = await Fetch(`assets/${blog.asset}`);
+          dataArr = [{ ...blog, src: photoData.url }, ...dataArr];
+        }
+        setBlogs(await dataArr);
+      })();
+    }
   }, []);
 
   return (

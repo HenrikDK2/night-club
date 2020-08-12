@@ -5,6 +5,8 @@ import Fetch from "../../../../FetchFunction";
 import Loader from "../../../../components/Loader";
 import Image from "../../../../components/Image";
 import SocialIcon from "../../../../components/SocialIcon";
+import { useRecoilState } from "recoil";
+import { TestemonialsState } from "../../../../Recoil";
 
 const Section = styled.section`
   margin: 0 auto 100px;
@@ -52,17 +54,20 @@ const LogoContainer = styled.aside`
 `;
 
 const Inded = () => {
-  const [testemonials, setTestemonials] = useState(null);
+  const [testemonials, setTestemonials] = useRecoilState(TestemonialsState);
   useEffect(() => {
-    (async () => {
-      const data = await Fetch("testemonials");
-      for (const i in data) {
-        const elm = data[i];
-        const photoData = await Fetch(`assets/${elm.asset}`);
-        data[i] = { ...elm, src: photoData.url };
-      }
-      setTestemonials(data);
-    })();
+    if (testemonials === null) {
+      (async () => {
+        const data = await Fetch("testemonials");
+        const newData = [];
+        for (const i in data) {
+          const elm = data[i];
+          const photoData = await Fetch(`assets/${elm.asset}`);
+          data[i] = { ...elm, src: photoData.url };
+        }
+        setTestemonials(data);
+      })();
+    }
   }, []);
 
   return (

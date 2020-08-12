@@ -8,7 +8,7 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-const index = ({ src, alt, css }) => {
+const index = ({ src, alt, css, onClick }) => {
   const Container = styled.figure`
     flex-shrink: 0;
     width: 50px;
@@ -18,7 +18,7 @@ const index = ({ src, alt, css }) => {
   `;
   return (
     <Container>
-      <Img onDragStart={(e) => e.preventDefault()} alt={alt} src={src} />
+      <Img onClick={onClick} onDragStart={(e) => e.preventDefault()} alt={alt} src={src} />
     </Container>
   );
 };

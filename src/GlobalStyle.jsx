@@ -20,6 +20,11 @@ const GlobalStyle = createGlobalStyle`
     0%{transform:translateY(0)}
     100%{transform:translateY(300px)}
   }
+
+  @keyframes SlideInX{
+    0%{opacity:0;transform:translateX(-500px)}
+    100%{opacity:1;transform:translateY(0)}
+  }
   :root{
     --bgColor: #030203;
     --red: #ff2a70;
@@ -49,7 +54,9 @@ const GlobalStyle = createGlobalStyle`
 
    .ReactModal__Overlay {
     z-index: 122 !important;
+    background: rgba(0,0,0,0.5) !important  ;
   }
+  
 `;
 
 export default GlobalStyle;

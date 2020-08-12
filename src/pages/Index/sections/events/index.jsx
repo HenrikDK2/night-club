@@ -6,6 +6,8 @@ import border from "../../../../components/Border";
 import Heading from "../../../../components/Heading";
 import Image from "../../../../components/Image";
 import Fetch from "../../../../FetchFunction";
+import { useRecoilState } from "recoil";
+import { EventsState } from "../../../../Recoil";
 import Loader from "../../../../components/Loader";
 
 const Section = styled.section`
@@ -133,17 +135,19 @@ const InfoContainer = styled.article`
 `;
 
 const Index = () => {
-  const [events, setEvents] = useState(null);
+  const [events, setEvents] = useRecoilState(EventsState);
   useEffect(() => {
-    (async () => {
-      let data = await Fetch("events");
-      for (const i in data) {
-        const elm = data[i];
-        const photoData = await Fetch(`assets/${elm.asset}`);
-        data[i] = { ...elm, src: photoData.url };
-      }
-      setEvents(data);
-    })();
+    if (events === null) {
+      (async () => {
+        let data = await Fetch("events");
+        for (const i in data) {
+          const elm = data[i];
+          const photoData = await Fetch(`assets/${elm.asset}`);
+          data[i] = { ...elm, src: photoData.url };
+        }
+        setEvents(data);
+      })();
+    }
   }, []);
 
   return (

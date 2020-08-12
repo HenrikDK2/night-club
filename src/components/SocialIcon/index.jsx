@@ -11,9 +11,6 @@ const Icon = styled(FontAwesomeIcon)`
   font-size: 2.5rem;
   text-decoration: none;
   color: var(--text);
-  @media (min-width: 1000px) {
-    margin: 0 20px;
-  }
 `;
 const index = ({ href, icon }) => {
   return (

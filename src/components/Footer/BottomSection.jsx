@@ -4,6 +4,11 @@ import Icon from "../SocialIcon";
 
 const LogoContainer = styled.div`
   display: flex;
+  & a svg {
+    @media (min-width: 1000px) {
+      margin: 0 20px;
+    }
+  }
 `;
 
 const Section = styled.section`

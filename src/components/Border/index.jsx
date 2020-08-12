@@ -11,6 +11,7 @@ const border = css`
     border-right: 50px solid transparent;
     border-left: 50px solid var(--red);
     border-bottom: 50px solid transparent;
+    z-index: 5;
   }
 
   &::before {
@@ -21,6 +22,7 @@ const border = css`
     border-left: 50px solid transparent;
     border-right: 50px solid var(--red);
     border-top: 50px solid transparent;
+    z-index: 5;
   }
 `;
 

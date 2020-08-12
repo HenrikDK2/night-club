@@ -5,11 +5,11 @@ API repo [https://github.com/HenrikDK2/NightClubApi](https://github.com/HenrikDK
 
 ### Tech Stack
 
-- Styled-components
-- React-router-dom
-- recoil
-- React-hook-form
-- Font awesome
+- Styled-components - Populært og hurtiger styling af hjemmeside
+- React-router-dom - For at navigere mellem sider i React.
+- recoil - For global state management
+- React-hook-form - Nemt at lave validering på Form
+- Font awesome - For brug af ikoner.
 
 ### `npm start`
 

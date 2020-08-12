@@ -37,7 +37,7 @@ const Section = styled.section`
 const Swipe = styled.article`
   display: flex;
   flex-direction: column;
-  justify-content: Center;
+  justify-content: flex-start;
   align-items: center;
   & > figure:first-child {
     width: 50%;
@@ -64,8 +64,6 @@ const Inded = () => {
       setTestemonials(data);
     })();
   }, []);
-
-  console.log(testemonials);
 
   return (
     <Section>

@@ -4,7 +4,7 @@ import Heading from "../../../../components/Heading";
 import Fetch from "../../../../FetchFunction";
 
 const Section = styled.section`
-  margin: 100px 0;
+  margin: 50px 0;
 `;
 
 const GridSection = styled.section`

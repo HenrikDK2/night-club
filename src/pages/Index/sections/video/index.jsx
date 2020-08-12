@@ -7,7 +7,7 @@ import border from "../../../../components/Border";
 
 const Section = styled.section`
   margin: 0 auto 100px;
-  max-width: 700px;
+  max-width: 1000px;
   padding: 0 1rem;
   box-sizing: border-box;
 

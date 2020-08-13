@@ -55,7 +55,7 @@ const ArrowButtonRight = styled(FontAwesomeIcon)`
   padding: 1rem;
   position: absolute;
   right: 100px;
-  top: 80%;
+  top: 95%;
   transform: translateY(-50%);
   cursor: pointer;
   @media (min-width: 1000px) {
@@ -67,7 +67,7 @@ const ArrowButtonLeft = styled(FontAwesomeIcon)`
   border: 2px solid #fff;
   position: absolute;
   left: 100px;
-  top: 80%;
+  top: 95%;
   transform: translateY(-50%);
   padding: 1rem;
   cursor: pointer;

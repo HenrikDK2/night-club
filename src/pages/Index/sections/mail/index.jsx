@@ -105,7 +105,10 @@ const Index = () => {
               type="text"
               placeholder="Enter Your Email"
               ref={register({
-                required: true,
+                required: {
+                  value: true,
+                  message: "Email is required",
+                },
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   message: "This is an invalid email",

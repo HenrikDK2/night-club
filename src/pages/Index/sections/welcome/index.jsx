@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import underlineStyle from "../../../../components/altUnderline";
 import Image from "../../../../components/Image";
@@ -30,6 +30,7 @@ const List = styled.ul`
       width: 100%;
       height: auto;
     }
+
     &:hover {
       & > aside {
         opacity: 1;
@@ -47,6 +48,9 @@ const HoverContent = styled.aside`
   height: 100%;
 
   position: absolute;
+  &:focus {
+    outline: none;
+  }
   & > section {
     display: flex;
     flex-direction: column;
@@ -75,6 +79,8 @@ const Section = styled.section`
 `;
 
 const WelcomeSection = () => {
+  const asideRef = useRef(null);
+
   return (
     <Section>
       <Heading>
@@ -85,7 +91,12 @@ const WelcomeSection = () => {
         {["", "", ""].map((_, i) => {
           return (
             <li key={i}>
-              <HoverContent>
+              <HoverContent
+                ref={asideRef}
+                tabIndex={1}
+                onFocus={(e) => (e.target.style.opacity = "1")}
+                onBlur={(e) => (e.target.style.opacity = "0")}
+              >
                 <section>
                   <Image src={favicon} alt="Nightclub favicon" />
                   <h3>Night club</h3>

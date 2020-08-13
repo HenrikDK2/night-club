@@ -167,7 +167,7 @@ const Index = () => {
             let description = e.eventDescription;
             if (description.length > 150) description = description.substring(0, 150);
             return (
-              <Swipe key={i}>
+              <Swipe key={i} tabIndex={1}>
                 <Container>
                   <InfoContainer>
                     <button>Book Now</button>

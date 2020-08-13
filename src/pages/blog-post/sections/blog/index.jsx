@@ -3,14 +3,9 @@ import styled from "styled-components";
 import Heading from "../../../../components/Heading";
 import Loader from "../../../../components/Loader";
 import Fetch from "../../../../FetchFunction";
-import queryString from "query-string";
 import Image from "../../../../components/Image";
 
 const Section = styled.section`
-  padding: 0 1rem;
-  box-sizing: border-box;
-  max-width: 1400px;
-  margin: 0 auto;
   & > h2 {
     margin: 100px 0 150px;
   }
@@ -49,10 +44,8 @@ const BlogJSX = ({ blog }) => {
     </>
   );
 };
-const Index = ({ location }) => {
+const Index = ({ id }) => {
   const [blog, setBlog] = useState(null);
-  const { id } = queryString.parse(location.search);
-  console.log(id);
 
   useEffect(() => {
     if (blog === null) {

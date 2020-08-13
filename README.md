@@ -12,6 +12,7 @@ API repo [https://github.com/HenrikDK2/NightClubApi](https://github.com/HenrikDK
 - Font awesome - For brug af ikoner.
 - Intersect Observer - For en handling indenfor viewport som Animation
 - Query string - For at skaffe Query parameterer.
+- react-responsive-carousel - For carousel, ikke det bedste valg. Jeg vil ikke bruge det til eksamen.
 
 ### `npm start`
 

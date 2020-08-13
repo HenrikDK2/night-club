@@ -60,7 +60,7 @@ const Index = () => {
       (async () => {
         let dataArr = [];
         for (let i = 1; i < 4; i++) {
-          const blog = await Fetch("blog-posts/" + i - 1);
+          const blog = await Fetch("blog-posts/" + i);
           const photoData = await Fetch(`assets/${blog.asset}`);
           dataArr = [{ ...blog, src: photoData.url }, ...dataArr];
         }

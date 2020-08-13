@@ -9,15 +9,50 @@ import Image from "../../../../components/Image";
 const Section = styled.section`
   padding: 0 1rem;
   box-sizing: border-box;
+  max-width: 1400px;
+  margin: 0 auto;
+  & > h2 {
+    margin: 100px 0 150px;
+  }
   & > figure:nth-of-type(1) {
     width: 100%;
     height: auto;
   }
+  & h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text);
+    margin: 2rem 0 0.5rem 0;
+  }
 `;
 
+const BlogInfo = styled.p`
+  color: var(--red);
+  margin: 0;
+  font-weight: 500;
+  opacity: 0.7;
+`;
+
+const BlogJSX = ({ blog }) => {
+  const date = new Date(blog.createdAt);
+  const year = date.getFullYear();
+  const month = date.toLocaleString("default", { month: "short" });
+  const day = date.getDay();
+  const description = blog.content;
+  return (
+    <>
+      <Image src={blog.src} alt="Blog Image" />
+      <h3>{blog.title}</h3>
+      <BlogInfo>{`BY: ${blog.author} / 3 Comments / ${day} ${month} ${year}`}</BlogInfo>
+      <p>{description}</p>
+    </>
+  );
+};
 const Index = ({ location }) => {
   const [blog, setBlog] = useState(null);
   const { id } = queryString.parse(location.search);
+  console.log(id);
 
   useEffect(() => {
     if (blog === null) {
@@ -28,18 +63,11 @@ const Index = ({ location }) => {
       })();
     }
   }, []);
-
   return (
     <Section>
       {" "}
       <Heading>Blog Post</Heading>
-      {blog ? (
-        <>
-          <Image src={blog.src} alt="Blog Image" />
-        </>
-      ) : (
-        <Loader />
-      )}
+      {blog ? <BlogJSX blog={blog} /> : <Loader />}
     </Section>
   );
 };

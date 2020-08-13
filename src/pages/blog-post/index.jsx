@@ -1,7 +1,12 @@
 import React from "react";
+import Blog from "./sections/blog";
 
-const blogPost = () => {
-  return <main></main>;
+const BlogPost = ({ location }) => {
+  return (
+    <main>
+      <Blog location={location} />
+    </main>
+  );
 };
 
-export default blogPost;
+export default BlogPost;

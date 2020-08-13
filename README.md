@@ -10,6 +10,8 @@ API repo [https://github.com/HenrikDK2/NightClubApi](https://github.com/HenrikDK
 - recoil - For global state management
 - React-hook-form - Nemt at lave validering på Form
 - Font awesome - For brug af ikoner.
+- Intersect Observer - For en handling indenfor viewport som Animation
+- Query string - For at skaffe Query parameterer.
 
 ### `npm start`
 

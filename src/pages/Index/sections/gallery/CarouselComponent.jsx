@@ -15,6 +15,10 @@ const GalleryArticle = styled.article`
   max-width: 800px;
   margin: 0 auto;
   box-sizing: border-box;
+  & > button:last-child {
+    margin-left: auto;
+    width: 100px;
+  }
   & > figure:first-child {
     width: auto;
     height: auto;
@@ -22,12 +26,11 @@ const GalleryArticle = styled.article`
   & > section {
     padding: 0 1rem;
     box-sizing: border-box;
-  }
-  & button {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    & h3 {
+      margin-bottom: 0;
+    }
   }
   @media (min-width: 600px) {
     padding: 2rem 5rem 0;
@@ -47,10 +50,49 @@ const Exit = styled(FontAwesomeIcon)`
   color: var(--red);
 `;
 
+const ArrowButtonRight = styled(FontAwesomeIcon)`
+  border: 2px solid #fff;
+  padding: 1rem;
+  position: absolute;
+  right: 100px;
+  top: 80%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  @media (min-width: 1000px) {
+    top: 50%;
+  }
+`;
+
+const ArrowButtonLeft = styled(FontAwesomeIcon)`
+  border: 2px solid #fff;
+  position: absolute;
+  left: 100px;
+  top: 80%;
+  transform: translateY(-50%);
+  padding: 1rem;
+  cursor: pointer;
+  @media (min-width: 1000px) {
+    top: 50%;
+  }
+`;
+
 const CarouselComponent = () => {
   const galleryPhotos = useRecoilValue(GalleryPhotosState);
   const [carousel, setCarousel] = useRecoilState(GalleryCarouselState);
   const data = galleryPhotos[carousel.index];
+
+  const calculateIndex = (isRightArrow) => {
+    let index = carousel.index;
+    if (isRightArrow) {
+      index++;
+      if (index > galleryPhotos.length - 1) index = 0;
+    } else {
+      index--;
+      if (index < 0) index = galleryPhotos.length - 1;
+    }
+    setCarousel({ ...carousel, index });
+  };
+
   return (
     <>
       {galleryPhotos && (
@@ -71,6 +113,11 @@ const CarouselComponent = () => {
                 unde possimus ea assumenda, sed quibusdam quas impedit vel laboriosam dolor beatae.
                 Voluptatem, commodi reiciendis! Fugit, beatae?
               </p>
+              <ArrowButtonRight
+                onClick={(e) => calculateIndex(true)}
+                icon={["fa", "arrow-right"]}
+              />
+              <ArrowButtonLeft onClick={(e) => calculateIndex(false)} icon={["fa", "arrow-left"]} />
               <Button>Read More</Button>
             </section>
           </GalleryArticle>

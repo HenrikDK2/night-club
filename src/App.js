@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes, faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitterSquare,
   faFacebookSquare,
@@ -22,6 +22,8 @@ library.add(
   faTwitterSquare,
   faFacebookSquare,
   faGooglePlusSquare,
+  faArrowRight,
+  faArrowLeft,
   faSkype,
   faBlogger
 );

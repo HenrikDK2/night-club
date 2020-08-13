@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Image from "../../../../components/Image";
 import Fetch from "../../../../FetchFunction";
 import Loader from "../../../../components/Loader";
 import Heading from "../../../../components/Heading";
+import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { BlogsState } from "../../../../Recoil";
 
@@ -27,6 +28,7 @@ const Section = styled.section`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      color: var(--text);
       margin: 2rem 0 0.5rem 0;
     }
     & figure {
@@ -37,6 +39,10 @@ const Section = styled.section`
       padding: 1rem;
     }
   }
+`;
+
+const LinkContainer = styled(Link)`
+  text-decoration: none;
 `;
 
 const BlogInfo = styled.p`
@@ -54,7 +60,7 @@ const Index = () => {
       (async () => {
         let dataArr = [];
         for (let i = 1; i < 4; i++) {
-          const blog = await Fetch("blog-posts/" + i);
+          const blog = await Fetch("blog-posts/" + i - 1);
           const photoData = await Fetch(`assets/${blog.asset}`);
           dataArr = [{ ...blog, src: photoData.url }, ...dataArr];
         }
@@ -75,13 +81,14 @@ const Index = () => {
             const day = date.getDay();
             let description = blog.content;
             if (description.length > 150) description = description.substring(0, 150) + "...";
-
             return (
               <li key={i}>
-                <Image src={blog.src} alt="night club" />
-                <h3>{blog.title}</h3>
-                <BlogInfo>{`BY: ${blog.author} / 3 Comments / ${day} ${month} ${year}`}</BlogInfo>
-                <p>{description}</p>
+                <LinkContainer to={`/blogPost?id=${blog.id}`}>
+                  <Image src={blog.src} alt="night club" />
+                  <h3>{blog.title}</h3>
+                  <BlogInfo>{`BY: ${blog.author} / 3 Comments / ${day} ${month} ${year}`}</BlogInfo>
+                  <p>{description}</p>
+                </LinkContainer>
               </li>
             );
           })}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Heading from "../../../../components/Heading";
 import Fetch from "../../../../FetchFunction";
@@ -6,6 +6,7 @@ import border from "../../../../components/Border";
 import Image from "../../../../components/Image";
 import Loader from "../../../../components/Loader";
 import CarouselComponent from "./CarouselComponent";
+import { useInView } from "react-intersection-observer";
 import { useRecoilState } from "recoil";
 import { GalleryPhotosState, GalleryCarouselState } from "../../../../Recoil";
 
@@ -56,7 +57,10 @@ const GridSection = styled.section`
 const Index = () => {
   const [galleryPhotos, setGalleryPhotos] = useRecoilState(GalleryPhotosState);
   const [carousel, setCarousel] = useRecoilState(GalleryCarouselState);
-
+  const [ref, inView, entry] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
   useEffect(() => {
     if (galleryPhotos === null) {
       (async () => {
@@ -70,16 +74,17 @@ const Index = () => {
       })();
     }
   }, []);
+
   return (
     <Section>
       <Heading>Night club gallery</Heading>
       {galleryPhotos ? (
-        <GridSection>
+        <GridSection ref={ref}>
           {galleryPhotos.map((data, i) => {
             return (
               <Image
+                style={inView ? { animation: `SlideInX ${Math.random().toFixed(1)}s` } : null}
                 onClick={(e) => setCarousel({ ...carousel, index: i, isOpen: true })}
-                style={{ animation: `SlideInX ${Math.random()}s` }}
                 key={i}
                 src={data.src}
                 alt="Gallery Image"

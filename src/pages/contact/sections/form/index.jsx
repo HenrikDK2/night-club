@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import Subscribe from "../../../../components/Button";
@@ -60,6 +60,7 @@ const EmailSend = styled.p`
 `;
 
 const Index = () => {
+  const [isEmailSubscribed, setIsEmailSubscribed] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = async (data) => {
     try {
@@ -72,7 +73,6 @@ const Index = () => {
         data.comment +
         "&website=" +
         data.website;
-      console.log(formData);
       const res = await fetch(`http://night-club-api.herokuapp.com/messages`, {
         method: "POST",
         headers: {
@@ -80,8 +80,7 @@ const Index = () => {
         },
         body: formData,
       });
-      console.log(data);
-      console.log(res);
+      setIsEmailSubscribed(true);
     } catch (error) {
       console.error(error);
     }
@@ -94,6 +93,8 @@ const Index = () => {
           <Input
             type="text"
             name="name"
+            disabled={isEmailSubscribed ? true : false}
+            style={isEmailSubscribed ? { opacity: 0.5, pointerEvents: "none" } : {}}
             placeholder="Your Name"
             ref={register({
               required: {
@@ -108,6 +109,8 @@ const Index = () => {
           <Input
             type="text"
             name="email"
+            disabled={isEmailSubscribed ? true : false}
+            style={isEmailSubscribed ? { opacity: 0.5, pointerEvents: "none" } : {}}
             placeholder="Your Email"
             ref={register({
               required: {
@@ -126,6 +129,8 @@ const Index = () => {
           <Input
             type="text"
             name="website"
+            disabled={isEmailSubscribed ? true : false}
+            style={isEmailSubscribed ? { opacity: 0.5, pointerEvents: "none" } : {}}
             placeholder="Your Website"
             ref={register({
               required: {
@@ -140,6 +145,8 @@ const Index = () => {
           <TextArea
             name="comment"
             placeholder="Your Comment"
+            disabled={isEmailSubscribed ? true : false}
+            style={isEmailSubscribed ? { opacity: 0.5, pointerEvents: "none" } : {}}
             ref={register({
               required: {
                 value: true,
@@ -149,7 +156,8 @@ const Index = () => {
           />
         </label>
         {errors.comment && <ErrMsg>{errors.comment.message}</ErrMsg>}
-        <Subscribe>Submit</Subscribe>
+        {!isEmailSubscribed && <Subscribe>Submit</Subscribe>}
+        {isEmailSubscribed && <EmailSend>Email is subscribed</EmailSend>}
       </Form>
     </Article>
   );

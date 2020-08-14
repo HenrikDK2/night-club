@@ -66,7 +66,6 @@ const Index = ({ id }) => {
   const onSubmit = async (data) => {
     try {
       const formData = "name=" + data.name + "&email=" + data.email + "&comment=" + data.comment;
-      console.log(formData);
       const res = await fetch(`http://night-club-api.herokuapp.com/blog-posts/${id}/comments`, {
         method: "POST",
         headers: {
@@ -74,7 +73,6 @@ const Index = ({ id }) => {
         },
         body: formData,
       });
-      console.log(res);
     } catch (error) {
       console.error(error);
     }

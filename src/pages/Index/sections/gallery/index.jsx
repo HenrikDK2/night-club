@@ -39,6 +39,29 @@ const GridSection = styled.section`
     }
   }
 
+  & figure:nth-of-type(1) {
+    animation: SlideInX 0.5s;
+  }
+
+  & figure:nth-of-type(2) {
+    animation: SlideInX 0.6s;
+  }
+  & figure:nth-of-type(3) {
+    animation: SlideInX 0.7s;
+  }
+  & figure:nth-of-type(4) {
+    animation: SlideInX 0.8s;
+  }
+  & figure:nth-of-type(5) {
+    animation: SlideInX 0.9s;
+  }
+  & figure:nth-of-type(6) {
+    animation: SlideInX 1s;
+  }
+  & figure:nth-of-type(7) {
+    animation: SlideInX 1.1s;
+  }
+
   @media (min-width: 500px) {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: 200px;
@@ -80,17 +103,17 @@ const Index = () => {
       <Heading>Night club gallery</Heading>
       {galleryPhotos ? (
         <GridSection ref={ref}>
-          {galleryPhotos.map((data, i) => {
-            return (
-              <Image
-                style={inView ? { animation: `SlideInX ${Math.random().toFixed(1)}s` } : null}
-                onClick={(e) => setCarousel({ ...carousel, index: i, isOpen: true })}
-                key={i}
-                src={data.src}
-                alt="Gallery Image"
-              />
-            );
-          })}
+          {inView &&
+            galleryPhotos.map((data, i) => {
+              return (
+                <Image
+                  onClick={(e) => setCarousel({ ...carousel, index: i, isOpen: true })}
+                  key={i}
+                  src={data.src}
+                  alt="Gallery Image"
+                />
+              );
+            })}
           <CarouselComponent />
         </GridSection>
       ) : (

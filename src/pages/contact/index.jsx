@@ -29,7 +29,7 @@ const Info = styled.article`
 `;
 
 const Main = styled.main`
-  padding: 0 1rem;
+  padding: 5rem 1rem;
   box-sizing: border-box;
   margin: 0 auto;
   max-width: 1400px;

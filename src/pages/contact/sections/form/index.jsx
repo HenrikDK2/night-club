@@ -63,16 +63,25 @@ const Index = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = async (data) => {
     try {
-      /*       const formData = "name=" + data.name + "&email=" + data.email + "&comment=" + data.comment;
+      const formData =
+        "name=" +
+        data.name +
+        "&email=" +
+        data.email +
+        "&message=" +
+        data.comment +
+        "&website=" +
+        data.website;
       console.log(formData);
-      const res = await fetch(`http://night-club-api.herokuapp.com/blog-posts/${id}/comments`, {
+      const res = await fetch(`http://night-club-api.herokuapp.com/messages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: formData,
-      }); */
+      });
       console.log(data);
+      console.log(res);
     } catch (error) {
       console.error(error);
     }

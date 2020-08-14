@@ -1,5 +1,6 @@
 ### Api Endpoint
 
+Netlify: [https://terminsproeve.netlify.app/](https://terminsproeve.netlify.app/)
 Open [https://night-club-api.herokuapp.com/](https://night-club-api.herokuapp.com/) to view it in the browser.
 API repo [https://github.com/HenrikDK2/NightClubApi](https://github.com/HenrikDK2/NightClubApi) to view it in the browser.
 
